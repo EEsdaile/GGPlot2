@@ -1,0 +1,21 @@
+#heat map for non-sequential x axis
+#you input each color for the gradient
+ggplot(failsdata, aes(S5.Pass.Fail, Pass.Fail, fill=YOB))+
+  geom_tile()+
+  scale_fill_manual(values=c("red","red3","red4","orangered","orangered3",
+                             "peru","tan1","orange","darkseagreen4",
+                             "darkseagreen","cadetblue3","deepskyblue","cornflowerblue","blue"))
+                            
+#heat map for sequential x axis
+#you set high and low colors and R creates a gradient. 
+ggplot(omitted, aes(S5.Pass.Fail, Pass.Fail, fill=YOB))+
+  geom_tile()+
+  scale_fill_gradient(low="blueviolet", high="green")
+
+#Heat Map, R picks colors based on YOB (fill)
+ggplot(data=failsdata, aes(x=Pass.Fail, y=S5.Pass.Fail))+
+  geom_tile(aes(fill=YOB), high="red", low="green")
+  
+#scatter plot, R picks color based on YOB (fill)
+ggplot(omitted, aes(y=S5.Pass.Fail, x=Pass.Fail, fill=YOB))+
+  geom_point(aes(color=YOB))
