@@ -24,3 +24,11 @@ ggplot(omitted, aes(y=S5.Pass.Fail, x=Pass.Fail, fill=YOB))+
 ggplot(omitted, aes(y=S5.Pass.Fail, x=Pass.Fail, fill=YOB))+
   geom_point(aes(color=YOB, size=3, shape=18))+
   scale_shape_identity()
+
+#plot with Title, X, and Y axis labels
+ggplot(omitted, aes(y=S5.Pass.Fail, x=Pass.Fail, fill=YOB))+
+  geom_point(aes(color=YOB, size=3, shape=18))+
+  scale_shape_identity()+
+  ggtitle("Chip v S5 Pass/Fail + YOB")+
+  xlab("Chip Pass or Fail")+
+  ylab("S5 # of failures per sample")
