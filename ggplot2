@@ -32,3 +32,16 @@ ggplot(omitted, aes(y=S5.Pass.Fail, x=Pass.Fail, fill=YOB))+
   ggtitle("Chip v S5 Pass/Fail + YOB")+
   xlab("Chip Pass or Fail")+
   ylab("S5 # of failures per sample")
+
+
+#barplot that is "dodged" (paired) and stacked 
+#color="white" is what "stacks" it
+#position="dodge" is what pairs it
+ggplot(omitted, aes(y=S5.Pass.Fail, x=YOB, fill=Pass.Fail))+
+  geom_bar(stat="identity", color="white", position="dodge")
+
+#same as above, but with the x axis split into seperate charts
+ggplot(omitted, aes(y=S5.Pass.Fail, x=YOB, fill=Pass.Fail))+
+  geom_bar(stat="identity", color="white", position="dodge")+
+  facet_wrap(~YOB)
+  
