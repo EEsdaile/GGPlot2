@@ -45,3 +45,4 @@ ggplot(omitted, aes(y=S5.Pass.Fail, x=YOB, fill=Pass.Fail))+
   geom_bar(stat="identity", color="white", position="dodge")+
   facet_wrap(~YOB)
   
+theme_light()
