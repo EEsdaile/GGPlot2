@@ -46,3 +46,8 @@ ggplot(omitted, aes(y=S5.Pass.Fail, x=YOB, fill=Pass.Fail))+
   facet_wrap(~YOB)
   
 theme_light()
+
+#colors changed if greater than
+ggplot(data, aes(y=di, x=bp))+
+  geom_point(color=ifelse(data$di > 10,"red","dodgerblue4"))+
+  theme_light()
