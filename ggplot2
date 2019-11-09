@@ -51,3 +51,9 @@ theme_light()
 ggplot(data, aes(y=di, x=bp))+
   geom_point(color=ifelse(data$di > 10,"red","dodgerblue4"))+
   theme_light()
+
+#line plot, lines coloored by grouping. With title
+ggplot(data, aes(x=Pop.name, y=Fis.Pop, group=Locus.name1))+
+  geom_line(aes(color=Locus.name1))+
+  ggtitle("Fis of Offspring from 2010-2015")+
+  theme_light()
