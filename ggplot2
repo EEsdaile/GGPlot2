@@ -57,3 +57,14 @@ ggplot(data, aes(x=Pop.name, y=Fis.Pop, group=Locus.name1))+
   geom_line(aes(color=Locus.name1))+
   ggtitle("Fis of Offspring from 2010-2015")+
   theme_light()
+
+#line plot with seperate data points for dams and sires. Colored by locus, size and shape chosen. 
+ggplot(data, aes(x=Pop.name, y=Het.exp, group=Locus.name1))+
+  geom_line(aes(color=Locus.name1))+
+  ggtitle("MSA - Exp Het of all from 2010-2015")+
+  theme_light()+
+  geom_point((aes(x=X1Pop.name, y = X1Het.exp,group=X1Locus.name1,color=X1Locus.name1, shape=17, size=2.5)))+
+  scale_shape_identity()+
+  geom_line((aes(x=X1Pop.name,y=X1Het.exp,color=X1Locus.name1, linetype="dotted", size=1.05)))+
+  scale_linetype_identity()+
+  scale_size_identity()
