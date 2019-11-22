@@ -68,3 +68,13 @@ ggplot(data, aes(x=Pop.name, y=Het.exp, group=Locus.name1))+
   geom_line((aes(x=X1Pop.name,y=X1Het.exp,color=X1Locus.name1, linetype="dotted", size=1.05)))+
   scale_linetype_identity()+
   scale_size_identity()
+
+
+#bar/col chart - grouped - colored by group
+ggplot(data, aes(x=Locus.name1, y=Het.exp, group=Pop.name, fill=Pop.name))+
+  geom_bar(stat="identity",position = position_dodge(width=.9))+
+  scale_fill_manual(values=c("green", "yellow", "orange","black"))
+  
+#organize bar/col chart
+data$Pop.name<- factor(data$Pop.name, levels=c("top40","mid28","bottom32","allsires"))
+  
