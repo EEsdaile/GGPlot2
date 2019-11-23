@@ -78,3 +78,15 @@ ggplot(data, aes(x=Locus.name1, y=Het.exp, group=Pop.name, fill=Pop.name))+
 #organize bar/col chart
 data$Pop.name<- factor(data$Pop.name, levels=c("top40","mid28","bottom32","allsires"))
   
+#for MSA-Exp Het of all - Sires Grouped graph
+ggplot(alldata, aes(x=Pop.name, y=Het.exp, group=Locus.name1))+
+  ggtitle("MSA - Exp Het of all - Sires Grouped")+
+  theme_light()+
+  geom_point((aes(x=Pop.name, y = Het.exp,group=Locus.name1,color=Locus.name1, size=3)))+
+  geom_point(aes(x=Pop.name.1, y=Het.exp.1, group=Locus.name1.1), size=3)+
+  scale_shape_identity()+
+  geom_line((aes(x=Pop.name,y=Het.exp,color=Locus.name1, linetype="solid")))+
+  scale_linetype_identity()+
+  scale_size_identity()+
+  scale_x_discrete(limits=c("offspring","Dams","allsires","top40","mid28","bottom32"))
+  
