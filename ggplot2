@@ -133,4 +133,4 @@ ggplot(alldata, aes(x=Pop.name, y=Het.exp, group=Locus.name1))+
       ggtitle("Figure 2 - Expected Heterozygosity of USTA Trotters from 2010-2015")+
       xlab("Group")+
       ylab("Expected Heterozygosity")+
-      labs(color="Marker", subtitle="Test")
+      labs(color="Marker")
