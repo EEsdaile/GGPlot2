@@ -90,3 +90,31 @@ ggplot(alldata, aes(x=Pop.name, y=Het.exp, group=Locus.name1))+
   scale_size_identity()+
   scale_x_discrete(limits=c("offspring","Dams","allsires","top40","mid28","bottom32"))
   
+  
+  #Figure 1 - Average Allele Count with SE Bars with text wrapping
+    ggplot(data)+
+      geom_point(aes(x=Pop.name2,y=Avg..Alleles, size=7))+
+      ggtitle("Figure 1 - Average Allele Count in USTA Trotters from 2010-2015 with Standard Error Bars")+
+      geom_errorbar(aes(x=Pop.name2,ymin=Avg..Alleles-SE.alleles,ymax=Avg..Alleles+SE.alleles))+
+      scale_linetype_identity()+
+      scale_size_identity()+
+      theme_light()+
+      scale_x_discrete(limits=c("Offspring of Most Prolific Sires","Offspring of Middle Sires","Offspring of Bottom Sires","All Offspring","Dams","All Sires","Most Prolific Sires",
+                                "Middle Sires","Bottom Sires"),
+                       labels=function(x)str_wrap(x,width=20))+
+      xlab("Group")+
+      ylab("Average Allele Count")
+
+
+#Figure 3 - Average Fis with SE Bars
+    ggplot(data2)+
+      geom_point(aes(x=Pop.name2,y=Avg.Fis, size=7))+
+      ggtitle("Figure 3 - Average Fis in USTA Trotters from 2010-2015 with Standard Error Bars")+
+      geom_errorbar(aes(x=Pop.name2,ymin=Avg.Fis-SE.Fis,ymax=Avg.Fis+SE.Fis))+
+      scale_linetype_identity()+
+      scale_size_identity()+
+      theme_light()+
+      scale_x_discrete(limits=c("Offspring of Most Prolific Sires","Offspring of Middle Sires","Offspring of Bottom Sires","All Offspring","Dams","All Sires"), 
+                       labels=function(x)str_wrap(x,width=20))+
+      xlab("Group")+
+      ylab("Average Fis")
